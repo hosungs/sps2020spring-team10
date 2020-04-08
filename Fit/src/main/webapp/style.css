@@ -1,0 +1,24 @@
+h1{
+    color: rgb(255, 255, 255);
+    font-family: "Georgia", serif;
+    text-align: center;
+    font-size: 40px;
+}
+
+body{
+    background-color: rgb(104, 175, 114);
+
+
+}
+
+.image-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-thumbnails img {
+  margin: 10px;
+  max-height: 200px;
+  max-width: 200px;
+}

@@ -38,11 +38,11 @@ public class NewFitServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String imageUrl = getUploadedFileUrl(request, "fitPic"); //fitPic = whatever form for pics is called
+    String imageUrl = getUploadedFileUrl(request, "image"); 
     long timestamp = System.currentTimeMillis();
 
     Entity fitEntity = new Entity("Fit");
-    fitEntity.setProperty("imageUrl", imageUrl);
+    fitEntity.setProperty("url", imageUrl);
     fitEntity.setProperty("timestamp", timestamp);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();

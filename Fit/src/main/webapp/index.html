@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>*** WEBSITE NAME ***</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body onload="getjson(); getLoginStatus();">
-    <form>
-    <div id="loginstatus-content">
-        
-       <a id = "loginstatuslink" ></a>
-    
+    <head>
+        <meta charset="UTF-8">
+        <title>Fit</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body onload="getjson(); getLoginStatus(); getFits();">  
+        <form>
+            <div id="loginstatus-content">
+            <a id = "loginstatuslink" ></a>
+            </div>
+        </form>
 
-      </div>
-      </form>
-      <h1>Welcome to *** WEBSITE NAME ***!</h1>
-      <div id="loginstatus-container"></div>
-      <p>Login to be able to post and upvote!</p>
-      
-      
-   
-    <h2>Comment Section</h2>
+        <h1>Fit</h1>
+        <div id = 'fits' class = 'image-thumbnails'> 
+        </div>
 
-       <div id="data-container"></div>
 
-    
-    </div>
-  </body>
+
+        <form id="fit-form"  method="POST" enctype="multipart/form-data">
+            <p>Upload an image:</p>
+            <input type="file" name="image">
+            <br/><br/>
+            <button>Submit</button>
+        </form>
+
+
+
+
+
+
+        <div id="loginstatus-container">
+            <p>Login to be able to post and upvote!</p>
+        </div>
+        <h2>Comment Section</h2>
+        <div id="data-container"></div>
+    </body>
 </html>
