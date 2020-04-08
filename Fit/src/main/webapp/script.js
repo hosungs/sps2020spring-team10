@@ -23,7 +23,7 @@ function getjson() {
 
 
         // if not logged in
-        if(email == "Stranger"){
+        if(!loginstatus.log){
             dataElement.innerText = "Log in to see comments!";
             console.log("test1");
         }
@@ -65,14 +65,13 @@ function getjson() {
 
 function getLoginStatus() {
     fetch('/loginstatus').then(response => response.json()).then((loginstatus) => {
-        const email = loginstatus.email;
-        const redirectUrl = loginstatus.redirectUrl;
+        const email = loginstatus.userEmail;
+        const redirectUrl = loginstatus.logLink;
         const loginstatusLink = document.getElementById('loginstatuslink');
         loginstatusLink.href = redirectUrl;
         const loginstatusMsg = document.getElementById('loginstatus-container');
-        if (email == ""){
+        if (!loginstatus.log){
             loginstatusLink.innerText = "Login here";
-            loginstatusMsg.innerText = "******Login to be able to comment******";
         }
         else{
             loginstatusLink.innerText = "Logout here";

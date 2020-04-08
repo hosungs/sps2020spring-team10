@@ -7,34 +7,24 @@
         <script src="script.js"></script>
     </head>
     <body onload="getjson(); getLoginStatus(); getFits();">  
-        <form>
-            <div id="loginstatus-content">
-            <a id = "loginstatuslink" ></a>
-            </div>
-        </form>
+        <a id = "loginstatuslink" ></a>
 
         <h1>Fit</h1>
         <div id = 'fits' class = 'image-thumbnails'> 
         </div>
 
 
-
+        <h3>Share your Fit!</h3>
         <form id="fit-form"  method="POST" enctype="multipart/form-data">
-            <p>Upload an image:</p>
             <input type="file" name="image">
             <br/><br/>
             <button>Submit</button>
         </form>
 
 
-
-
-
-
-        <div id="loginstatus-container">
-            <p>Login to be able to post and upvote!</p>
-        </div>
-        <h2>Comment Section</h2>
+        <h3>Comment Section</h3>
+        <div id="loginstatus-container"></div>
+        
         <div id="data-container"></div>
     </body>
 </html>
