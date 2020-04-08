@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.sps.data.LoginData;
 
-@WebServlet("/login")
+@WebServlet("/loginstatus")
 public class UsersServlet extends HttpServlet {
 
   @Override

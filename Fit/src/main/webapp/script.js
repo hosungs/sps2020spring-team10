@@ -17,13 +17,13 @@
 function getjson() {
     console.log("test");
     fetch('/loginstatus').then(response => response.json()).then((loginstatus) => {
-        const email = loginstatus.email;
-        const redirectUrl = loginstatus.redirectUrl;
+        const email = loginstatus.userEmail;
+        const redirectUrl = loginstatus.logLink;
         const dataElement = document.getElementById('data-container');
 
 
         // if not logged in
-        if(email == ""){
+        if(!loginstatus.log){
             dataElement.innerText = "Log in to see comments!";
             console.log("test1");
         }
@@ -65,14 +65,13 @@ function getjson() {
 
 function getLoginStatus() {
     fetch('/loginstatus').then(response => response.json()).then((loginstatus) => {
-        const email = loginstatus.email;
-        const redirectUrl = loginstatus.redirectUrl;
+        const email = loginstatus.userEmail;
+        const redirectUrl = loginstatus.logLink;
         const loginstatusLink = document.getElementById('loginstatuslink');
         loginstatusLink.href = redirectUrl;
         const loginstatusMsg = document.getElementById('loginstatus-container');
-        if (email == ""){
+        if (!loginstatus.log){
             loginstatusLink.innerText = "Login here";
-            loginstatusMsg.innerText = "******Login to be able to comment******";
         }
         else{
             loginstatusLink.innerText = "Logout here";
@@ -88,3 +87,25 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
+function getFits() { 
+    fetch('/display-fits').then(response => response.json()).then((display) => {
+        const fitPicsElement = document.getElementById('fits');
+        fitPicsElement.innerHTML = '';
+        fits = display.fits;
+        fits.forEach((fit) => {
+            fitPicsElement.appendChild(createImgElement(fit.url));
+            console.log(fit.url);
+        });
+        const fitForm = document.getElementById('fit-form');
+        fitForm.action = display.uploadUrl;
+    });
+
+}
+
+function createImgElement(url){
+    const imgElement = document.createElement('IMG');
+    imgElement.setAttribute('src', url);
+    return imgElement;
+}
+
